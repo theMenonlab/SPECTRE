@@ -1,0 +1,145 @@
+{
+  "ablation_name": "final_minus_anchor",
+  "ablation_description": "final SCOPE minus backbone anchor; factorized head and integer crop-shift retained",
+  "requested_schedule": "5 synthetic + 15 real",
+  "effective_synth_epochs": 5,
+  "fine_tune_epochs": 15,
+  "hlp_gain": 1.0,
+  "output_channels": 60,
+  "evaluation_policy": "standard every-20 plus all four excluded datasets",
+  "variant": "factorhead_cropshift_ft",
+  "synth_variant": "factorhead_baseline",
+  "synth_checkpoint": "/media/al/big_ext4/chpc_benchmark_60ch_hlpx15_20260728/run6/phamscope_bassai/ablation_5x15/final_minus_anchor/checkpoints/scope60_ablation_final_minus_anchor_s5_f15_synth_final.pth",
+  "ft_checkpoint": "/media/al/big_ext4/chpc_benchmark_60ch_hlpx15_20260728/run6/phamscope_bassai/ablation_5x15/final_minus_anchor/checkpoints/scope60_ablation_final_minus_anchor_s5_f15_ft_final.pth",
+  "synth_training_log": "/media/al/big_ext4/chpc_benchmark_60ch_hlpx15_20260728/run6/phamscope_bassai/ablation_5x15/final_minus_anchor/logs/scope60_ablation_final_minus_anchor_s5_f15_synth_training_log.json",
+  "ft_training_log": "/media/al/big_ext4/chpc_benchmark_60ch_hlpx15_20260728/run6/phamscope_bassai/ablation_5x15/final_minus_anchor/logs/scope60_ablation_final_minus_anchor_s5_f15_ft_training_log.json",
+  "summaries": {
+    "standard": {
+      "mae": 0.0041868136074669935,
+      "mse": 0.00017337638914295794,
+      "psnr": 46.7197804428494,
+      "ssim_2d": 0.9833308243598777,
+      "ssim_3d": 0.9838920125366212,
+      "inference_time": 0.01617704393557214,
+      "model_name": "scope60_ablation_final_minus_anchor_s5_f15_ft",
+      "samples": 459,
+      "categories": 34,
+      "eval_split": "standard",
+      "standard_stride": 20,
+      "holdout_categories": [
+        "20251030_developing_membrane_bone",
+        "20251118_older_basewood",
+        "20251201_gm_poplar",
+        "20251217_c_elegans"
+      ],
+      "mask_tensor_path": "/media/al/big_ext4/chpc_benchmark_60ch_hlpx15_20260728/run6/phamscope_specat/realmask_artifacts/mask_120_512_20260311_flat_field_specat.pt",
+      "measurement_source": "big_redo_miniscope_test"
+    },
+    "devbone": {
+      "mae": 0.016223577656657308,
+      "mse": 0.00056729866490649,
+      "psnr": 35.488135141410396,
+      "ssim_2d": 0.9151234129967396,
+      "ssim_3d": 0.8852345983249502,
+      "inference_time": 0.015425759392815668,
+      "model_name": "scope60_ablation_final_minus_anchor_s5_f15_ft",
+      "samples": 74,
+      "categories": 1,
+      "eval_split": "devbone",
+      "standard_stride": 20,
+      "holdout_categories": [
+        "20251030_developing_membrane_bone",
+        "20251118_older_basewood",
+        "20251201_gm_poplar",
+        "20251217_c_elegans"
+      ],
+      "mask_tensor_path": "/media/al/big_ext4/chpc_benchmark_60ch_hlpx15_20260728/run6/phamscope_specat/realmask_artifacts/mask_120_512_20260311_flat_field_specat.pt",
+      "measurement_source": "big_redo_holdout_test"
+    },
+    "older_basewood": {
+      "mae": 0.010923806248277528,
+      "mse": 0.00029837099249799547,
+      "psnr": 38.26338006203879,
+      "ssim_2d": 0.920261290727266,
+      "ssim_3d": 0.9021334184773996,
+      "inference_time": 0.01545510095419343,
+      "model_name": "scope60_ablation_final_minus_anchor_s5_f15_ft",
+      "samples": 291,
+      "categories": 1,
+      "eval_split": "older_basewood",
+      "standard_stride": 20,
+      "holdout_categories": [
+        "20251030_developing_membrane_bone",
+        "20251118_older_basewood",
+        "20251201_gm_poplar",
+        "20251217_c_elegans"
+      ],
+      "mask_tensor_path": "/media/al/big_ext4/chpc_benchmark_60ch_hlpx15_20260728/run6/phamscope_specat/realmask_artifacts/mask_120_512_20260311_flat_field_specat.pt",
+      "measurement_source": "big_redo_holdout_test"
+    },
+    "gm_poplar": {
+      "mae": 0.009335916614009425,
+      "mse": 0.00039627448447822415,
+      "psnr": 41.235205103229866,
+      "ssim_2d": 0.9597421549783923,
+      "ssim_3d": 0.9544863752975973,
+      "inference_time": 0.015450894230543966,
+      "model_name": "scope60_ablation_final_minus_anchor_s5_f15_ft",
+      "samples": 99,
+      "categories": 1,
+      "eval_split": "gm_poplar",
+      "standard_stride": 20,
+      "holdout_categories": [
+        "20251030_developing_membrane_bone",
+        "20251118_older_basewood",
+        "20251201_gm_poplar",
+        "20251217_c_elegans"
+      ],
+      "mask_tensor_path": "/media/al/big_ext4/chpc_benchmark_60ch_hlpx15_20260728/run6/phamscope_specat/realmask_artifacts/mask_120_512_20260311_flat_field_specat.pt",
+      "measurement_source": "big_redo_holdout_test"
+    },
+    "c_elegans": {
+      "mae": 0.004770151092038078,
+      "mse": 9.421608420916368e-05,
+      "psnr": 45.429547010378585,
+      "ssim_2d": 0.9928131973052515,
+      "ssim_3d": 0.9924827163390483,
+      "inference_time": 0.015480348042079381,
+      "model_name": "scope60_ablation_final_minus_anchor_s5_f15_ft",
+      "samples": 287,
+      "categories": 1,
+      "eval_split": "c_elegans",
+      "standard_stride": 20,
+      "holdout_categories": [
+        "20251030_developing_membrane_bone",
+        "20251118_older_basewood",
+        "20251201_gm_poplar",
+        "20251217_c_elegans"
+      ],
+      "mask_tensor_path": "/media/al/big_ext4/chpc_benchmark_60ch_hlpx15_20260728/run6/phamscope_specat/realmask_artifacts/mask_120_512_20260311_flat_field_specat.pt",
+      "measurement_source": "big_redo_holdout_test"
+    }
+  },
+  "holdout_aggregate": {
+    "holdout_names": [
+      "devbone",
+      "older_basewood",
+      "gm_poplar",
+      "c_elegans"
+    ],
+    "holdout_samples": 751,
+    "macro_dataset_average": {
+      "psnr": 40.10406682926441,
+      "ssim_3d": 0.9335842771097489,
+      "mae": 0.010313362902745584,
+      "mse": 0.00033904005652296836
+    },
+    "pooled_sample_average": {
+      "psnr": 41.12028081986161,
+      "ssim_3d": 0.94189730465611,
+      "mae": 0.008885035250390496,
+      "mse": 0.00025975665799117325
+    }
+  },
+  "completed": "2026-08-06T06:36:42.410749"
+}

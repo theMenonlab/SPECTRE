@@ -1,0 +1,63 @@
+{
+  "checkpoint": "/mnt/wwn-0x5000c500b66356b8-part1/phamscope_results/20260730_scope180_training/model_A_current_organisms_from60/checkpoints/scope180_current_from60_best_psnr.pth",
+  "checkpoint_sha256": "9b1ff586123ca9dc3741864fca5282004049200600776864ae0ae0b5b5e588d7",
+  "mask": "/media/al/samsung_2tb/20260717_180ch_dataset/calibration/measured_20260730_first10s/mask_180_600_measured_hybrid_first10s.pt",
+  "mask_sha256": "c1426c8faf9d043db1725f31737934459d8a4e6e1c60e5efdd546b5a5f77d5a9",
+  "spatial_mask": "/media/al/samsung_2tb/20260717_180ch_dataset/alignment_parameters/overlap_analysis_margin8_top_left600/largest_safe_circle_mask_608.png",
+  "categories": [
+    "20260728_c_elegans"
+  ],
+  "split": "all",
+  "available_sample_count": 162,
+  "evaluated_sample_count": 162,
+  "top_left_size": 600,
+  "hlp_target_scale_restored_before_metrics": 15.0,
+  "per_state_metrics_requested": true,
+  "metrics": {
+    "nll": -4.870921788392244,
+    "l1": 0.0010558021489105382,
+    "psnr180": 59.883480024926456,
+    "psnr30": 61.337171366185316,
+    "mean_spectrum_corr": 0.9999032870970535,
+    "sam_degrees": 0.5314845831870003,
+    "inference_time_seconds": 0.10413696000605453,
+    "per_state": {
+      "LCP": {
+        "l1": 0.0014671948591080484,
+        "psnr": 56.68881807209533,
+        "mean_spectrum_corr": 0.9998722853699374,
+        "sam_degrees": 0.5046153885811653
+      },
+      "RCP": {
+        "l1": 0.0009232888466759045,
+        "psnr": 60.132226826232156,
+        "mean_spectrum_corr": 0.9999494929888585,
+        "sam_degrees": 0.36509651250835656
+      },
+      "HLP": {
+        "l1": 0.0002855592124152607,
+        "psnr": 69.15058074762791,
+        "mean_spectrum_corr": 0.9995870947838205,
+        "sam_degrees": 0.2480803857020219
+      },
+      "VLP": {
+        "l1": 0.0015727918721551513,
+        "psnr": 55.52065451351213,
+        "mean_spectrum_corr": 0.9999716099249224,
+        "sam_degrees": 0.27648947470201923
+      },
+      "45LP": {
+        "l1": 0.0010084104138558707,
+        "psnr": 58.88771134835702,
+        "mean_spectrum_corr": 0.9998994323383722,
+        "sam_degrees": 0.47202026285871374
+      },
+      "135LP": {
+        "l1": 0.0010775678753737867,
+        "psnr": 58.92089160872094,
+        "mean_spectrum_corr": 0.9999347830576806,
+        "sam_degrees": 0.42174013520062625
+      }
+    }
+  }
+}
