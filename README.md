@@ -8,7 +8,9 @@ This repository contains the runnable PyTorch model, inference, training, evalua
 
 | Asset | Link | Contents |
 |---|---|---|
-| Model weights and calibration | **Kaggle link pending upload** | Models A, B, C, and c42d; matching calibration tensors; minimal 180- and 60-channel examples; SHA-256 manifest |
+| SPECTRE model weights | [Kaggle Models](https://www.kaggle.com/models/alingold/spectre-models) | Released SPECTRE model files and associated model assets |
+| General 60-channel dataset (512 px) | [Kaggle Dataset](https://www.kaggle.com/datasets/alingold/spectre-general-60ch-dataset-512) | General 60-channel SPECTRE dataset at 512-pixel spatial resolution |
+| SPECTRE 150-channel dataset | [Kaggle Dataset](https://www.kaggle.com/datasets/alingold/spectre-150ch) | SPECTRE 150-channel dataset |
 | Source code | [GitHub](https://github.com/theMenonlab/SPECTRE) | Inference, training, evaluation, timing, and compact result provenance |
 
 The prepared Kaggle filenames and hashes are listed in [`models/checkpoints_manifest.csv`](models/checkpoints_manifest.csv). Do not substitute checkpoints with similar names: Model A/B/C use one measured calibration tensor, while c42d uses its own acquisition-specific calibration.
