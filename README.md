@@ -13,16 +13,17 @@ This repository contains the runnable PyTorch model, inference, training, evalua
 | SPECTRE 150-channel dataset | [Kaggle Dataset](https://www.kaggle.com/datasets/alingold/spectre-150ch) | SPECTRE 150-channel dataset |
 | Source code | [GitHub](https://github.com/theMenonlab/SPECTRE) | Inference, training, evaluation, timing, and compact result provenance |
 
-The prepared Kaggle filenames and hashes are listed in [`models/checkpoints_manifest.csv`](models/checkpoints_manifest.csv). Do not substitute checkpoints with similar names: Model A/B/C use one measured calibration tensor, while c42d uses its own acquisition-specific calibration.
+The prepared Kaggle filenames and hashes are listed in [`models/checkpoints_manifest.csv`](models/checkpoints_manifest.csv). Models A, B and C all use the same measured calibration tensor, `model_ABC_mask_180_600_20260805.pt`.
 
 ## Released checkpoints
 
 | Checkpoint | Intended role | Calibration |
 |---|---|---|
-| `model_A_best_psnr.pth` | Publication organism model, initialized from the established physical 60-channel model | `model_ABC_mask_180_600.pt` |
-| `model_B_best_psnr.pth` | Inclusive model including optical targets | `model_ABC_mask_180_600.pt` |
-| `model_C_best_psnr.pth` | Matched random-initialization control; not the recommended application model | `model_ABC_mask_180_600.pt` |
-| `c42d_best_psnr.pth` | Checkpoint used for the released live-video reconstruction lineage | `c42d_mask_180_600.pt` |
+| `model_A_best_psnr.pth` | Organism model, used for the biological figures and live-worm videos; initialized from the 60-channel `spectre-60ch-s5-f15` checkpoint | `model_ABC_mask_180_600_20260805.pt` |
+| `model_B_best_psnr.pth` | Inclusive model including optical targets; same initialization as Model A | `model_ABC_mask_180_600_20260805.pt` |
+| `model_C_best_psnr.pth` | Matched random-initialization control; not the recommended application model | `model_ABC_mask_180_600_20260805.pt` |
+
+Kaggle model version 4 (November 18, 2026) holds these checkpoints. Model A is the checkpoint previously released as `c42d_best_psnr.pth`, and Models B and C were retrained with the same recipe. The July 30 checkpoints remain available as version 3; their evaluation records are in [`results/scope180/superseded_20260730/`](results/scope180/superseded_20260730/).
 
 These are best-PSNR checkpoints. Timing JSON files are measurements, not weights. The exact historical 60-channel checkpoint supporting the Table S2 architecture result is not in this release because the audited file was unavailable; see [`results/benchmark60/README.md`](results/benchmark60/README.md).
 
@@ -60,7 +61,7 @@ sha256sum -c manifests/SHA256SUMS.txt
 python src/spectre180/run_scope_inference_180.py \
   --input release-assets/examples/scope180/pos0001_mini_fc.png \
   --checkpoint release-assets/checkpoints/publication/model_A_best_psnr.pth \
-  --mask release-assets/calibration/model_ABC_mask_180_600.pt \
+  --mask release-assets/calibration/model_ABC_mask_180_600_20260805.pt \
   --output-dir outputs/model_A_example \
   --device auto \
   --save-uint16-mu
@@ -86,7 +87,7 @@ A minimal random-initialization training smoke test is:
 python src/spectre180/train_scope_180_20260730.py \
   --data-root /path/to/paired/data \
   --train-categories category_name \
-  --mask /path/to/model_ABC_mask_180_600.pt \
+  --mask /path/to/model_ABC_mask_180_600_20260805.pt \
   --spatial-loss-mask /path/to/largest_safe_circle_mask_608.png \
   --initialization random \
   --output-dir outputs/training_smoke \
@@ -95,7 +96,7 @@ python src/spectre180/train_scope_180_20260730.py \
   --max-eval-samples 1
 ```
 
-For transfer initialization, use `--initialization from60` or `from120` and supply the matching `--warmstart-checkpoint`. The 60-channel checkpoint used to initialize c42d is available as the [`spectre-60ch-s5-f15`](https://www.kaggle.com/models/alingold/spectre-models/PyTorch/spectre-60ch-s5-f15) variation of the Kaggle model, together with its calibration tensor, training code and per-folder test metrics. The 60-channel checkpoint used to initialize Models A and B is not released. Neither is required for inference with the released 180-channel weights.
+For transfer initialization, use `--initialization from60` or `from120` and supply the matching `--warmstart-checkpoint`. The 60-channel checkpoint used to initialize Models A and B is available as the [`spectre-60ch-s5-f15`](https://www.kaggle.com/models/alingold/spectre-models/PyTorch/spectre-60ch-s5-f15) variation of the Kaggle model, together with its calibration tensor, training code and per-folder test metrics. It is not required for inference with the released 180-channel weights.
 
 Evaluate a frozen checkpoint with:
 
@@ -104,7 +105,7 @@ python src/spectre180/evaluate_scope180_external.py \
   --checkpoint /path/to/model_A_best_psnr.pth \
   --data-root /path/to/paired/data \
   --categories category_name \
-  --mask /path/to/model_ABC_mask_180_600.pt \
+  --mask /path/to/model_ABC_mask_180_600_20260805.pt \
   --spatial-mask /path/to/largest_safe_circle_mask_608.png \
   --per-state-metrics \
   --output outputs/model_A_metrics.json
@@ -114,7 +115,7 @@ python src/spectre180/evaluate_scope180_external.py \
 
 - `src/spectre180/`: model, inference, training, evaluation, and throughput tools.
 - `models/checkpoints_manifest.csv`: checkpoint/calibration identities and SHA-256 values.
-- `results/scope180/`: compact frozen external-evaluation and throughput records.
+- `results/scope180/`: compact frozen external-evaluation records for the current checkpoints; July 30 evaluation and throughput records are in `superseded_20260730/`.
 - `results/benchmark60/`: compact historical architecture-benchmark results; no third-party benchmark source trees.
 - `licenses/NAFNet_LICENSE.txt`: upstream NAFNet MIT terms and its included BasicSR Apache-2.0 notice.
 
