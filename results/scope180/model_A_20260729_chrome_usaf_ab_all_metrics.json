@@ -1,8 +1,8 @@
 {
-  "checkpoint": "/mnt/wwn-0x5000c500b66356b8-part1/phamscope_results/20260730_scope180_training/model_A_current_organisms_from60/checkpoints/scope180_current_from60_best_psnr.pth",
-  "checkpoint_sha256": "9b1ff586123ca9dc3741864fca5282004049200600776864ae0ae0b5b5e588d7",
-  "mask": "/media/al/samsung_2tb/20260717_180ch_dataset/calibration/measured_20260730_first10s/mask_180_600_measured_hybrid_first10s.pt",
-  "mask_sha256": "c1426c8faf9d043db1725f31737934459d8a4e6e1c60e5efdd546b5a5f77d5a9",
+  "checkpoint": "/home/al/Documents/phamscope_figs_20260409/20260730_unified_output/spectre_retraining_20260805/spectre180_measured_c42d_from_scope60_s5_f15/full/checkpoints/spectre180_best_psnr.pth",
+  "checkpoint_sha256": "f1f76555aebc568cf7f94344e03bfde8703ce03e38bacc6b228a39c5af52061a",
+  "mask": "/media/al/samsung_2tb/20260717_180ch_dataset/calibration/measured_20260805_pos1_blue_redo_all_measured_first10s/mask_180_600_all_measured_20260805_pos1_blue_redo_first10s.pt",
+  "mask_sha256": "c42d02607e4ab92edb9dfb6b29f96d9130e55ae3908a512ba01c61c607d9cf0b",
   "spatial_mask": "/media/al/samsung_2tb/20260717_180ch_dataset/alignment_parameters/overlap_analysis_margin8_top_left600/largest_safe_circle_mask_608.png",
   "categories": [
     "20260729_chrome_usaf_ab"
@@ -14,49 +14,49 @@
   "hlp_target_scale_restored_before_metrics": 15.0,
   "per_state_metrics_requested": true,
   "metrics": {
-    "nll": -0.8395938277244568,
-    "l1": 0.00683413096703589,
-    "psnr180": 45.122995376586914,
-    "psnr30": 45.1612663269043,
-    "mean_spectrum_corr": 0.984150290897374,
-    "sam_degrees": 5.1664690310220625,
-    "inference_time_seconds": 0.21571636199951172,
+    "nll": -3.306766986846924,
+    "l1": 0.0035444031236693263,
+    "psnr180": 50.29348373413086,
+    "psnr30": 49.858890533447266,
+    "mean_spectrum_corr": 0.9662696250949383,
+    "sam_degrees": 7.584340694728237,
+    "inference_time_seconds": 0.29372847080230713,
     "per_state": {
       "LCP": {
-        "l1": 0.008481175173074007,
-        "psnr": 43.20376205444336,
-        "mean_spectrum_corr": 0.9976209736003878,
-        "sam_degrees": 4.897770814072501
+        "l1": 0.0035081817768514156,
+        "psnr": 47.652854919433594,
+        "mean_spectrum_corr": 0.9799762342302673,
+        "sam_degrees": 4.08998202082969
       },
       "RCP": {
-        "l1": 0.005640123970806599,
-        "psnr": 46.70384216308594,
-        "mean_spectrum_corr": 0.9965589319113719,
-        "sam_degrees": 4.706366629309214
+        "l1": 0.004123459104448557,
+        "psnr": 50.182363510131836,
+        "mean_spectrum_corr": 0.9945370840498559,
+        "sam_degrees": 8.963242967813635
       },
       "HLP": {
-        "l1": 0.004445366561412811,
-        "psnr": 47.75580406188965,
-        "mean_spectrum_corr": 0.5886844739333952,
-        "sam_degrees": 7.431152734696485
+        "l1": 0.0009645183745305985,
+        "psnr": 60.901512145996094,
+        "mean_spectrum_corr": 0.5136718968455667,
+        "sam_degrees": 4.330767620144656
       },
       "VLP": {
-        "l1": 0.009351799730211496,
-        "psnr": 42.37227439880371,
-        "mean_spectrum_corr": 0.9959683356175434,
-        "sam_degrees": 4.020889102304547
+        "l1": 0.005912353750318289,
+        "psnr": 44.5179328918457,
+        "mean_spectrum_corr": 0.997008102694299,
+        "sam_degrees": 3.4866190019016843
       },
       "45LP": {
-        "l1": 0.006627529626712203,
-        "psnr": 45.200551986694336,
-        "mean_spectrum_corr": 0.9962920208856805,
-        "sam_degrees": 5.511243631746616
+        "l1": 0.0030340109951794147,
+        "psnr": 49.358957290649414,
+        "mean_spectrum_corr": 0.9741590546976373,
+        "sam_degrees": 6.1948099093133155
       },
       "135LP": {
-        "l1": 0.0064587886445224285,
-        "psnr": 45.50175666809082,
-        "mean_spectrum_corr": 0.9975105676385603,
-        "sam_degrees": 4.295795488006914
+        "l1": 0.0037238935474306345,
+        "psnr": 49.14729118347168,
+        "mean_spectrum_corr": 0.9904427500304072,
+        "sam_degrees": 5.618609460634218
       }
     }
   }
