@@ -95,7 +95,7 @@ python src/spectre180/train_scope_180_20260730.py \
   --max-eval-samples 1
 ```
 
-For transfer initialization, use `--initialization from60` or `from120` and supply the matching `--warmstart-checkpoint`. The two historical 60-channel lineage checkpoints were deliberately not included in the initial Kaggle payload because they add about 909 MB and are not required for inference with the released 180-channel weights.
+For transfer initialization, use `--initialization from60` or `from120` and supply the matching `--warmstart-checkpoint`. The 60-channel checkpoint used to initialize c42d is available as the [`spectre-60ch-s5-f15`](https://www.kaggle.com/models/alingold/spectre-models/PyTorch/spectre-60ch-s5-f15) variation of the Kaggle model, together with its calibration tensor, training code and per-folder test metrics. The 60-channel checkpoint used to initialize Models A and B is not released. Neither is required for inference with the released 180-channel weights.
 
 Evaluate a frozen checkpoint with:
 
